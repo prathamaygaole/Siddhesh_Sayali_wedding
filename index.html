@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siddhesh & Sayali Wedding Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #1a0209;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(26, 2, 9, 0.98) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(59, 7, 24, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(26, 2, 9, 0.98) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(59, 7, 24, 0.4) 0%, transparent 40%);
+      z-index: 0;
+      animation: auroraShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraShift {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      50%  { filter: hue-rotate(20deg) brightness(1.15); }
+      100% { filter: hue-rotate(-15deg) brightness(0.95); }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 150, 80, 0.6));
+      border-radius: 50%;
+      animation: twinkle ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: scale(0.6); }
+      50%       { opacity: 1;   transform: scale(1.3); }
+    }
+
+    .btn-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      gap: 20px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      background: radial-gradient(ellipse at 50% 40%, rgba(59,7,24,0.6) 0%, transparent 70%);
+    }
+
+    .btn-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .btn-tagline {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: #f5c6d0;
+      text-shadow: 0 2px 20px rgba(200, 80, 100, 0.6);
+      letter-spacing: 2px;
+    }
+
+    .btn-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.75rem, 2vw, 0.9rem);
+      color: rgba(245, 198, 208, 0.6);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-top: -10px;
+    }
+
+    .open-seal {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      cursor: pointer;
+      margin: 10px 0;
+      animation: sealFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes sealFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .seal-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #3B0718, #6b1228, #3B0718, #8b1a35, #3B0718);
+      box-shadow: 0 0 0 3px rgba(245,198,208,0.3), 0 0 30px rgba(59,7,24,0.8), 0 8px 32px rgba(0,0,0,0.6);
+      animation: sealRotateBorder 8s linear infinite;
+    }
+
+    @keyframes sealRotateBorder {
+      to { filter: hue-rotate(10deg) brightness(1.1); }
+    }
+
+    .seal-inner {
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, #6b1228, #3B0718 60%, #1a0209);
+      border: 1px solid rgba(245, 198, 208, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .open-seal:hover .seal-inner {
+      transform: scale(1.06);
+      box-shadow: 0 0 25px rgba(245, 198, 208, 0.2);
+    }
+
+    .seal-icon {
+      font-size: 2.2rem;
+      animation: sealPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .seal-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 0.85rem;
+      color: rgba(245, 198, 208, 0.85);
+      letter-spacing: 1px;
+    }
+
+    .seal-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px dashed rgba(245, 198, 208, 0.2);
+      animation: sealRingSpin 12s linear infinite;
+    }
+
+    @keyframes sealRingSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .seal-glow {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,7,24,0.5) 0%, transparent 70%);
+      animation: sealGlowPulse 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes sealGlowPulse {
+      0% { opacity: 0.4; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .btn-tap-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: rgba(245, 198, 208, 0.5);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      animation: tapPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes tapPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 50;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 80, 100, 0.5);
+      background: rgba(59, 7, 24, 0.85);
+      backdrop-filter: blur(8px);
+      color: #f5c6d0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .music-btn.visible {
+      display: flex;
+    }
+
+    .music-btn:hover {
+      background: rgba(200, 80, 100, 0.2);
+      box-shadow: 0 4px 20px rgba(200, 80, 100, 0.35);
+    }
+
+    .music-btn .bar {
+      display: inline-block;
+      width: 3px;
+      margin: 0 1.5px;
+      background: #f5c6d0;
+      border-radius: 2px;
+      animation: musicBar 0.8s ease-in-out infinite alternate;
+    }
+
+    .music-btn .bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+    .music-btn .bar:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+    .music-btn .bar:nth-child(3) { height: 10px; animation-delay: 0.3s; }
+    .music-btn .bar:nth-child(4) { height: 16px; animation-delay: 0.45s; }
+    .music-btn .bar:nth-child(5) { height: 6px; animation-delay: 0.6s; }
+
+    .music-btn.muted .bar {
+      animation: none;
+      height: 3px !important;
+    }
+
+    @keyframes musicBar {
+      0% { transform: scaleY(0.4); }
+      100% { transform: scaleY(1.2); }
+    }
+
+    .card-screen {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 420px;
+      gap: 15px;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease;
+      position: relative;
+    }
+
+    .card.open {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    .card-top {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 30px 45px;
+      position: relative;
+      border-radius: 200px 200px 16px 16px;
+      border: 2px solid rgba(200, 80, 100, 0.6);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(200, 80, 100, 0.18);
+      overflow: hidden;
+    }
+
+    .card-top::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 200px 200px 16px 16px;
+      background: conic-gradient(from 0deg, transparent 0%, rgba(200,80,100,0.9) 20%, transparent 40%, rgba(245,198,208,0.5) 60%, transparent 80%, rgba(200,80,100,0.9) 100%);
+      animation: rotateBorder 4s linear infinite;
+      z-index: 0;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 2px;
+    }
+
+    .card-top > * { position: relative; z-index: 1; }
+
+    @keyframes rotateBorder {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .card-top-ornament {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #f5c6d0;
+      letter-spacing: 6px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px rgba(200, 80, 100, 0.7);
+    }
+
+    .floral-border {
+      text-align: center;
+      border: 1px solid rgba(200, 80, 100, 0.55);
+      padding: 30px 25px;
+      border-radius: 120px 120px 8px 8px;
+      position: relative;
+      width: 100%;
+    }
+
+    .floral-border::before {
+      content: '❦';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(160deg, #1a0209, #3B0718);
+      padding: 0 14px;
+      color: #f5c6d0;
+      font-size: 1rem;
+    }
+
+    .floral-border::after {
+      content: '— ✦ —';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(160deg, #1a0209, #3B0718);
+      padding: 0 10px;
+      color: rgba(245, 198, 208, 0.7);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+    }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      background: linear-gradient(90deg, #fff 0%, #f5c6d0 40%, #fff 60%, #e8a0b0 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: nameFadeUp 1s ease forwards, shimmerText 3s linear infinite;
+    }
+
+    .names:nth-of-type(1) { animation-delay: 0.3s, 0s; }
+    .names:nth-of-type(2) { animation-delay: 0.7s, 0s; }
+
+    @keyframes nameFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmerText {
+      to { background-position: 200% center; }
+    }
+
+    .and {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin: 5px 0;
+      color: rgba(245, 198, 208, 0.95);
+      display: inline-block;
+      animation: heartbeat 1.6s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.2); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.15); }
+      56%       { transform: scale(1); }
+    }
+
+    .subtitle {
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      margin: 12px 0 0;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f5c6d0, transparent);
+      opacity: 0.5;
+    }
+
+    .quote-section {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 30px 30px;
+      text-align: center;
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid rgba(200, 80, 100, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(200, 80, 100, 0.1);
+    }
+
+    .quote-section::before,
+    .quote-section::after {
+      content: '"';
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: rgba(200, 80, 100, 0.4);
+      position: absolute;
+    }
+
+    .quote-section::before {
+      top: 8px;
+      left: 18px;
+    }
+
+    .quote-section::after {
+      bottom: 0;
+      right: 18px;
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.85rem, 2.2vw, 1rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+      font-style: italic;
+      padding: 0 15px;
+    }
+
+    .quote-icon {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.6;
+    }
+
+    .card-bottom {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 30px 40px;
+      gap: 22px;
+      border-radius: 16px;
+      border: 2px solid rgba(200, 80, 100, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(200, 80, 100, 0.1);
+    }
+
+    .carousel-card {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 30px 20px;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 100, 180, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 100, 180, 0.1);
+      text-align: center;
+    }
+
+    .carousel-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      color: #f5c6d0;
+      margin-bottom: 15px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(200, 80, 100, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: #f5c6d0;
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    .card-footer {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 100, 180, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 100, 180, 0.1);
+    }
+
+    .countdown-label {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: #f5c6d0;
+      margin-bottom: 15px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 55px;
+    }
+
+    .countdown-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      color: #f5c6d0;
+      background: rgba(200, 80, 100, 0.12);
+      border: 1px solid rgba(200, 80, 100, 0.4);
+      border-radius: 6px;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: transform 0.2s ease, color 0.2s ease;
+      animation: countGlow 2s ease-in-out infinite alternate;
+    }
+
+    .countdown-value.flip {
+      animation: flipNum 0.35s ease;
+    }
+
+    @keyframes flipNum {
+      0%   { transform: rotateX(0deg);    opacity: 1; }
+      50%  { transform: rotateX(90deg);   opacity: 0; }
+      51%  { transform: rotateX(-90deg);  opacity: 0; }
+      100% { transform: rotateX(0deg);    opacity: 1; }
+    }
+
+    .countdown-unit {
+      font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    .countdown-sep {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      color: rgba(245, 198, 208, 0.6);
+      align-self: flex-start;
+      margin-top: 12px;
+    }
+
+    .venue-section {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 100, 180, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 100, 180, 0.1);
+    }
+
+    .venue-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      color: #f5c6d0;
+      margin-bottom: 5px;
+    }
+
+    .venue-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+
+    .venue-address {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .venue-map {
+      width: 100%;
+      height: 180px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .venue-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #8b1a35, #c2185b);
+      border: 1px solid rgba(200, 80, 100, 0.6);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .venue-btn:hover {
+      background: linear-gradient(135deg, #a82040, #8b1a35);
+      box-shadow: 0 4px 20px rgba(200, 80, 100, 0.5);
+    }
+
+    .events-card {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 35px 25px;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 100, 180, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 100, 180, 0.1);
+      text-align: center;
+    }
+
+    .events-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      color: #f5c6d0;
+      margin-bottom: 4px;
+    }
+
+    .events-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 198, 208, 0.75);
+      margin-bottom: 8px;
+    }
+
+    .events-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f5c6d0, transparent);
+      margin: 0 auto 28px;
+    }
+
+    .events-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 20px;
+      background: rgba(200, 80, 100, 0.07);
+      border: 1px solid rgba(200, 80, 100, 0.28);
+      border-radius: 14px;
+      text-align: left;
+      transition: border-color 0.3s ease;
+    }
+
+    .event-item:hover {
+      border-color: rgba(200, 80, 100, 0.6);
+    }
+
+    .event-item.main-event {
+      background: linear-gradient(135deg, rgba(26,2,9,0.9), rgba(59,7,24,1), rgba(26,2,9,0.9));
+      border: 2px solid #f5c6d0;
+      position: relative;
+    }
+
+    .event-main-badge {
+      position: absolute;
+      top: -11px;
+      left: 20px;
+      background: linear-gradient(90deg, #8b1a35, #f5c6d0);
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .event-details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .event-day-badge {
+      display: inline-block;
+      background: rgba(200, 80, 100, 0.15);
+      color: #f5c6d0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(200, 80, 100, 0.35);
+      width: fit-content;
+    }
+
+    .event-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-weight: 600;
+      color: #f5c6d0;
+      line-height: 1.2;
+    }
+
+    .event-item.main-event .event-name {
+      font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    }
+
+    .event-datetime {
+      font-size: clamp(0.72rem, 2vw, 0.82rem);
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 600;
+    }
+
+    .event-item.main-event .event-datetime {
+      color: #f5c6d0;
+    }
+
+    .event-desc {
+      font-size: clamp(0.7rem, 1.8vw, 0.78rem);
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    .event-venue {
+      font-size: clamp(0.68rem, 1.8vw, 0.76rem);
+      color: rgba(245, 198, 208, 0.9);
+      margin-top: 2px;
+    }
+
+    .event-map-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #f5c6d0;
+      background: rgba(200, 80, 100, 0.12);
+      border: 1px solid rgba(200, 80, 100, 0.4);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .event-map-link:hover {
+      background: #8b1a35;
+      color: #fff;
+    }
+
+    .event-icon-box {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      background: rgba(200, 80, 100, 0.12);
+      border: 1px solid rgba(200, 80, 100, 0.4);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      align-self: center;
+    }
+
+    .event-item.main-event .event-icon-box {
+      background: rgba(180, 30, 70, 0.2);
+      border-color: rgba(220, 50, 90, 0.6);
+    }
+
+    .contact-card {
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 100, 180, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 100, 180, 0.1);
+    }
+
+    .contact-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.85rem, 2.2vw, 1rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+    }
+
+    .contact-card a {
+      color: #f5c6d0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .congrats-card {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(160deg, #1a0209, #3B0718, #1a0209);
+      padding: 50px 30px;
+      border-radius: 200px 200px 16px 16px;
+      border: 2px solid rgba(200, 80, 100, 0.5);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(200, 80, 100, 0.18);
+      gap: 12px;
+    }
+
+    .congrats-card.visible {
+      display: flex;
+    }
+
+    .congrats-emoji {
+      font-size: 2.5rem;
+    }
+
+    .congrats-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: #f5c6d0;
+      animation: titleGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    .congrats-divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f5c6d0, transparent);
+      margin: 5px 0;
+    }
+
+    .congrats-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: #f5c6d0;
+    }
+
+    .congrats-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      font-style: italic;
+      max-width: 320px;
+      padding: 0 10px;
+    }
+
+    .congrats-wish {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-weight: 600;
+      color: #f5c6d0;
+      margin-top: 5px;
+    }
+
+    .congrats-date {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 2px;
+    }
+
+    .scratch-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      color: #f5c6d0;
+    }
+
+    .scratch-hint {
+      font-size: clamp(0.7rem, 2vw, 0.82rem);
+      color: rgba(245, 198, 208, 0.75);
+      font-style: italic;
+      letter-spacing: 1px;
+    }
+
+    .scratch-container {
+      position: relative;
+      width: 300px;
+      height: 185px;
+      border-radius: 90px 90px 10px 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(120, 10, 80, 0.3);
+      border: 1px solid rgba(200, 80, 100, 0.4);
+      cursor: pointer;
+      touch-action: none;
+      animation: scratchFloat 3s ease-in-out infinite;
+    }
+
+    .scratch-reveal {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5f0e8, #ede8d8);
+      gap: 8px;
+    }
+
+    .reveal-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: #0d1a4a;
+    }
+
+    .reveal-day {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #b8952e;
+    }
+
+    .reveal-time {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: #2a3f8f;
+    }
+
+    .reveal-venue {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: #4a5a8a;
+      font-style: italic;
+    }
+
+    .scratch-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 80px 80px 8px 8px;
+    }
+
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg) scale(0.3);
+      }
+    }
+
+    .blast-ring {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 3px solid #f5c6d0;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      z-index: 99;
+      pointer-events: none;
+      animation: blastExpand 0.8s ease-out forwards;
+    }
+
+    @keyframes blastExpand {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(60);
+        opacity: 0;
+      }
+    }
+
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      z-index: 101;
+      pointer-events: none;
+      opacity: 0;
+      animation: sparkleBurst ease-out forwards;
+    }
+
+    @keyframes sparkleBurst {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: var(--sparkle-end) scale(0);
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card hover glow */
+    .quote-section, .card-bottom, .card-footer, .venue-section, .events-card, .contact-card, .carousel-card {
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .quote-section:hover, .card-bottom:hover, .card-footer:hover, .venue-section:hover, .events-card:hover, .contact-card:hover, .carousel-card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0 30px rgba(200,80,100,0.25);
+      transform: translateY(-3px);
+    }
+
+    /* Card-top inner glow pulse */
+    .card-top::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 200px 200px 16px 16px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(200,80,100,0.1) 0%, transparent 70%);
+      animation: innerGlow 4s ease-in-out infinite alternate;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes innerGlow {
+      0%   { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    /* Quote text breathe */
+    .quote-section.visible .quote-text {
+      animation: textBreathe 6s ease-in-out infinite;
+    }
+    @keyframes textBreathe {
+      0%, 100% { opacity: 0.85; }
+      50%       { opacity: 1; }
+    }
+
+    /* Scratch container float */
+    @keyframes scratchFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    /* Countdown value glow pulse */
+    @keyframes countGlow {
+      0%   { box-shadow: 0 0 0px rgba(200,80,100,0); }
+      100% { box-shadow: 0 0 14px rgba(200,80,100,0.45); }
+    }
+
+    /* Venue button shine sweep */
+    .venue-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .venue-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: skewX(-20deg);
+      animation: btnShine 3s ease-in-out infinite;
+    }
+    @keyframes btnShine {
+      0%   { left: -75%; }
+      60%, 100% { left: 130%; }
+    }
+
+    /* Venue map border pulse */
+    .venue-map {
+      animation: mapPulse 4s ease-in-out infinite;
+    }
+    @keyframes mapPulse {
+      0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+      50%       { box-shadow: 0 4px 25px rgba(200,80,100,0.25); }
+    }
+
+    /* Event items stagger slide-in */
+    .events-card.visible .event-item {
+      animation: eventSlideIn 0.5s ease forwards;
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    .events-card.visible .event-item:nth-child(1) { animation-delay: 0.1s; }
+    .events-card.visible .event-item:nth-child(2) { animation-delay: 0.28s; }
+    .events-card.visible .event-item:nth-child(3) { animation-delay: 0.46s; }
+    @keyframes eventSlideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Events divider expand */
+    .events-card.visible .events-divider {
+      animation: dividerExpand 0.8s ease forwards;
+      width: 0;
+    }
+    @keyframes dividerExpand {
+      to { width: 60px; }
+    }
+
+    /* Contact card border breathe */
+    .contact-card {
+      animation: borderBreathe 4s ease-in-out infinite;
+    }
+    @keyframes borderBreathe {
+      0%, 100% { border-color: rgba(200,80,100,0.35); }
+      50%       { border-color: rgba(200,80,100,0.7); }
+    }
+
+    /* Congrats emoji bounce */
+    .congrats-emoji {
+      font-size: 2.5rem;
+      animation: emojiBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes emojiBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-8px) scale(1.1); }
+    }
+
+    /* Floating petals */
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 2;
+      font-size: 1rem;
+      opacity: 0;
+      animation: petalFall linear infinite;
+    }
+    @keyframes petalFall {
+      0%   { opacity: 0; transform: translateY(-20px) rotate(0deg) scale(0.8); }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.5; }
+      100% { opacity: 0; transform: translateY(105vh) rotate(540deg) scale(0.5) translateX(40px); }
+    }
+
+    /* Carousel Ken Burns */
+    .carousel-slide img {
+      animation: kenBurns 6s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0%   { transform: scale(1)    translateX(0);    }
+      100% { transform: scale(1.07) translateX(-8px); }
+    }
+
+    /* Event icon pulse */
+    .event-icon-box {
+      animation: iconPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1);    box-shadow: 0 0 0px rgba(200,80,100,0); }
+      50%       { transform: scale(1.12); box-shadow: 0 0 14px rgba(200,80,100,0.5); }
+    }
+
+    /* Ornament spin */
+    .card-top-ornament {
+      animation: ornamentSpin 8s linear infinite;
+      display: inline-block;
+    }
+    @keyframes ornamentSpin {
+      0%   { letter-spacing: 6px; opacity: 0.7; }
+      50%  { letter-spacing: 14px; opacity: 1; }
+      100% { letter-spacing: 6px; opacity: 0.7; }
+    }
+
+    /* Scratch hint blink */
+    .scratch-hint {
+      animation: hintBlink 1.8s ease-in-out infinite;
+    }
+    @keyframes hintBlink {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.05); }
+    }
+
+    /* Congrats title glow pulse */
+    @keyframes titleGlow {
+      0%   { text-shadow: 0 2px 15px rgba(200,80,100,0.4); }
+      100% { text-shadow: 0 2px 30px rgba(200,80,100,0.9), 0 0 60px rgba(200,80,100,0.3); }
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        max-width: 360px;
+      }
+
+      .card-top {
+        padding: 50px 20px 35px;
+        border-radius: 170px 170px 14px 14px;
+      }
+
+      .card-bottom {
+        padding: 35px 20px;
+      }
+
+      .floral-border {
+        border-radius: 100px 100px 8px 8px;
+      }
+
+      .scratch-container {
+        width: 270px;
+        height: 170px;
+        border-radius: 80px 80px 8px 8px;
+      }
+
+      .scratch-canvas {
+        border-radius: 70px 70px 8px 8px;
+      }
+
+      .countdown-value {
+        width: 48px;
+        height: 48px;
+      }
+
+      .countdown {
+        gap: 8px;
+      }
+
+      .venue-map {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .card-top {
+        padding: 45px 15px 28px;
+        border-radius: 140px 140px 12px 12px;
+      }
+      .card-bottom {
+        padding: 28px 15px;
+      }
+
+      .floral-border {
+        padding: 22px 15px;
+        border-radius: 80px 80px 6px 6px;
+      }
+
+      .scratch-container {
+        width: 240px;
+        height: 150px;
+        border-radius: 70px 70px 6px 6px;
+      }
+
+      .scratch-canvas {
+        border-radius: 60px 60px 6px 6px;
+      }
+
+      .countdown-value {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+      }
+
+      .countdown {
+        gap: 6px;
+      }
+
+      .countdown-sep {
+        font-size: 1.2rem;
+      }
+
+      .card-footer {
+        padding: 20px 15px;
+      }
+
+      .venue-map {
+        height: 140px;
+      }
+
+      .venue-btn {
+        padding: 9px 22px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/wed.mp3" type="audio/mp3">
+  </audio>
+
+  <button class="music-btn" id="musicBtn" title="Toggle Music">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <div class="bg-pattern"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="btn-screen" id="btnScreen">
+    <p class="btn-tagline">You are cordially invited</p>
+    <p class="btn-subtitle">to a wedding celebration</p>
+    <div class="open-seal" id="openBtn">
+      <div class="seal-glow"></div>
+      <div class="seal-ring"></div>
+      <div class="seal-outer"></div>
+      <div class="seal-inner">
+        <span class="seal-icon">💍</span>
+        <span class="seal-text">Open</span>
+      </div>
+    </div>
+    <p class="btn-tap-text">Tap to reveal</p>
+  </div>
+
+  <div class="card-screen">
+    <div class="card" id="card">
+
+      <!-- Top Card: Names -->
+      <div class="card-top">
+        <p class="card-top-ornament">☙ ❧</p>
+        <div class="floral-border">
+          <p class="subtitle">Together with their families</p>
+          <h2 class="names">Siddhesh</h2>
+          <p class="and">&amp;</p>
+          <h2 class="names">Sayali</h2>
+          <p class="subtitle">invite you to celebrate their wedding</p>
+        </div>
+      </div>
+
+      <!-- Quote Section -->
+      <div class="quote-section reveal">
+        <p class="quote-text">With hearts full of love and joy, we warmly invite you to share in the celebration of our union. Your presence would mean the world to us as we begin this beautiful journey together.</p>
+        <!-- <p class="quote-icon">💍</p> -->
+      </div>
+
+      <!-- Photo Carousel -->
+      <div class="carousel-card reveal">
+        <h2 class="carousel-title">Our Moments</h2>
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide"><img src="assets/Image.jpg" alt="Moment 1" onerror="this.style.display='none'"></div>
+            <div class="carousel-slide"><img src="assets/Image%20(1).jpg" alt="Moment 2" onerror="this.style.display='none'"></div>
+            <div class="carousel-slide"><img src="assets/Image%20(2).jpg" alt="Moment 3" onerror="this.style.display='none'"></div>
+            <div class="carousel-slide"><img src="assets/Image%20(3).jpg" alt="Moment 4" onerror="this.style.display='none'"></div>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+
+      <!-- Bottom Card: Scratch to Reveal -->
+      <div class="card-bottom reveal">
+        <h2 class="scratch-title">Save the Date</h2>
+        <div class="scratch-container" id="scratchContainer">
+          <div class="scratch-reveal">
+            <p class="reveal-date">🗓️ 18th December 2026</p>
+            <p class="reveal-day">Friday</p>
+            <p class="reveal-time">🕐 12:00 PM Onwards</p>
+            <p class="reveal-venue">📍 Ashadeep Banquet Hall, Nashik</p>
+          </div>
+          <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+        </div>
+        <p class="scratch-hint">✨ Scratch to reveal the date</p>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="card-footer reveal">
+        <p class="countdown-label">Counting Down to Forever</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <div class="countdown-value" id="cdDays">00</div>
+            <span class="countdown-unit">Days</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-item">
+            <div class="countdown-value" id="cdHours">00</div>
+            <span class="countdown-unit">Hours</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-item">
+            <div class="countdown-value" id="cdMins">00</div>
+            <span class="countdown-unit">Min</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-item">
+            <div class="countdown-value" id="cdSecs">00</div>
+            <span class="countdown-unit">Sec</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue Section -->
+      <div class="venue-section reveal">
+        <h2 class="venue-title">📍 Venue</h2>
+        <p class="venue-name">Ashadeep — The Sapphire Banquet Hall</p>
+        <p class="venue-address">Agra Road, Panchavati, near K.K. Wagh Engineering College, Nashik - 422003</p>
+        <iframe
+          class="venue-map"
+          src="https://maps.google.com/maps?q=Ashadeep+The+Sapphire+Banquet+Hall+Nashik&output=embed&z=16"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Venue Map"
+        ></iframe>
+        <br>
+        <a class="venue-btn" href="https://www.google.com/maps/search/Ashadeep+The+Sapphire+Banquet+Hall+Nashik" target="_blank" rel="noopener noreferrer">
+          📍 View on Google Maps
+        </a>
+      </div>
+
+      <!-- Events Timeline -->
+      <div class="events-card reveal">
+        <p class="events-subtitle">Shubh Vivah Functions</p>
+        <h2 class="events-title">Celebration Itinerary</h2>
+        <div class="events-divider"></div>
+        <ul class="events-list">
+
+          <li class="event-item">
+            <div class="event-details">
+              <span class="event-day-badge">Day 01</span>
+              <span class="event-name">Haldi Ceremony</span>
+              <span class="event-datetime">🗓️ Wednesday, 16.12.2026 &nbsp;•&nbsp; ⏰ 5:00 PM</span>
+              <span class="event-desc">A heartwarming ceremony with yellow turmeric, traditional music, and joyful laughter as we begin celebrations.</span>
+              <span class="event-venue">📍 Rajendra Guru Nagar, Ganesh Krupa Apt, Neral</span>
+            </div>
+            <div class="event-icon-box">🌼</div>
+          </li>
+
+          <li class="event-item main-event">
+            <span class="event-main-badge">Main Event</span>
+            <div class="event-details">
+              <span class="event-day-badge">Day 02</span>
+              <span class="event-name">Shubh Vivah</span>
+              <span class="event-datetime">🗓️ Friday, 18.12.2026 &nbsp;•&nbsp; ⏰ Shubh Muhurat 12:20 PM</span>
+              <span class="event-desc">We request the pleasure of your presence as Siddhesh and Sayali tie the knot in eternal union.</span>
+              <span class="event-venue">📍 Ashadeep - The Sapphire Banquet Hall, Agra Road, Panchavati, near K.K. Wagh Engineering College, Nashik - 422003</span>
+              <a class="event-map-link" href="https://maps.google.com/?q=Ashadeep+The+Sapphire+Banquet+Hall+Nashik" target="_blank" rel="noopener noreferrer">🗺️ Open Google Maps →</a>
+            </div>
+            <div class="event-icon-box">💍</div>
+          </li>
+
+          <li class="event-item">
+            <div class="event-details">
+              <span class="event-day-badge">Day 03</span>
+              <span class="event-name">Satyanarayan Pooja</span>
+              <span class="event-datetime">🗓️ Saturday, 19.12.2026 &nbsp;•&nbsp; ⏰ 6:00 PM</span>
+              <span class="event-desc">Seeking blessings for love, prosperity, and harmony, followed by Mahaprasad &amp; dinner.</span>
+              <span class="event-venue">📍 Rajendra Guru Nagar, Ganesh Krupa Apt, Neral</span>
+            </div>
+            <div class="event-icon-box">🪔</div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Congratulations Card (hidden until countdown ends) -->
+      <div class="congrats-card" id="congratsCard">
+        <p class="congrats-emoji">💍✨</p>
+        <h2 class="congrats-title">Happily Ever After</h2>
+        <div class="congrats-divider"></div>
+        <p class="congrats-names">Siddhesh &amp; Sayali</p>
+        <p class="congrats-text">Two hearts, one love, one beautiful journey. May your life together be filled with endless love, laughter, and happily ever afters.</p>
+        <p class="congrats-wish">🎊 Congratulations to the Newlyweds! 🎊</p>
+        <p class="congrats-date">18th December 2026</p>
+      </div>
+
+      <!-- Contact Card -->
+      <div class="contact-card reveal">
+        <p>✉️ Want to create your own wedding card?</p>
+        <p>Contact us: <a href="tel:9922291217">📞 9922291217</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Floating petals
+    (function () {
+      var petals = ['🌸','🌺','🌹','✿','❀'];
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement('div');
+        p.className = 'petal';
+        p.textContent = petals[i % petals.length];
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.fontSize = (Math.random() * 0.6 + 0.7) + 'rem';
+        p.style.animationDuration = (Math.random() * 8 + 7) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        document.body.appendChild(p);
+      }
+    })();
+
+    // Twinkling stars
+    (function () {
+      var container = document.getElementById('particles');
+      for (var i = 0; i < 60; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        var size = (Math.random() * 3 + 1) + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.width = size;
+        p.style.height = size;
+        p.style.animationDuration = (Math.random() * 3 + 1.5) + 's';
+        p.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(p);
+      }
+    })();
+
+    // Scroll reveal observer
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { obs.observe(el); });
+    })();
+
+    // Carousel auto-scroll
+    (function () {
+      var track = document.getElementById('carouselTrack');
+      var dotsBox = document.getElementById('carouselDots');
+      var slides = track.querySelectorAll('.carousel-slide');
+      var current = 0;
+      for (var i = 0; i < slides.length; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('data-index', i);
+        dot.addEventListener('click', function () {
+          goTo(parseInt(this.getAttribute('data-index')));
+        });
+        dotsBox.appendChild(dot);
+      }
+      function goTo(index) {
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        var dots = dotsBox.querySelectorAll('.carousel-dot');
+        for (var j = 0; j < dots.length; j++) {
+          dots[j].classList.toggle('active', j === current);
+        }
+      }
+      setInterval(function () {
+        goTo((current + 1) % slides.length);
+      }, 3000);
+    })();
+
+    function setCD(id, val) {
+      var el = document.getElementById(id);
+      var str = val < 10 ? '0' + val : '' + val;
+      if (el.textContent !== str) {
+        el.textContent = str;
+        el.classList.remove('flip');
+        void el.offsetWidth;
+        el.classList.add('flip');
+      }
+    }
+
+    var weddingDate = new Date('2026-12-18T18:00:00').getTime();
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var diff = weddingDate - now;
+      if (diff <= 0) {
+        ['cdDays','cdHours','cdMins','cdSecs'].forEach(function(id){ document.getElementById(id).textContent = '00'; });
+        var sections = document.querySelectorAll('.card-top, .quote-section, .carousel-card, .card-bottom, .card-footer, .venue-section, .events-card, .contact-card');
+        for (var i = 0; i < sections.length; i++) sections[i].style.display = 'none';
+        document.getElementById('congratsCard').classList.add('visible');
+        document.getElementById('btnScreen').classList.add('hidden');
+        document.getElementById('card').classList.add('open');
+        return;
+      }
+      setCD('cdDays',  Math.floor(diff / (1000*60*60*24)));
+      setCD('cdHours', Math.floor((diff % (1000*60*60*24)) / (1000*60*60)));
+      setCD('cdMins',  Math.floor((diff % (1000*60*60)) / (1000*60)));
+      setCD('cdSecs',  Math.floor((diff % (1000*60)) / 1000));
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Open card
+    var bgMusic = document.getElementById('bgMusic');
+    var musicBtn = document.getElementById('musicBtn');
+    var isMuted = false;
+
+    document.getElementById('openBtn').addEventListener('click', function () {
+      document.getElementById('btnScreen').classList.add('hidden');
+      document.getElementById('card').classList.add('open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Start music
+      bgMusic.volume = 0.5;
+      bgMusic.play().catch(function() {});
+      musicBtn.classList.add('visible');
+
+      setTimeout(initScratch, 900);
+    });
+
+    // Mute/Unmute
+    musicBtn.addEventListener('click', function () {
+      isMuted = !isMuted;
+      bgMusic.muted = isMuted;
+      musicBtn.classList.toggle('muted', isMuted);
+    });
+
+    // Scratch card
+    function initScratch() {
+      var canvas = document.getElementById('scratchCanvas');
+      var container = document.getElementById('scratchContainer');
+      var ctx = canvas.getContext('2d');
+      var rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
+      var grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, '#6b0f2e');
+      grad.addColorStop(0.3, '#a01840');
+      grad.addColorStop(0.5, '#e05070');
+      grad.addColorStop(0.7, '#a01840');
+      grad.addColorStop(1, '#6b0f2e');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#fff0f8';
+      ctx.font = '600 ' + Math.max(14, canvas.width * 0.055) + 'px Cormorant Garamond, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Scratch Here!', canvas.width / 2, canvas.height / 2 + 5);
+
+      ctx.globalCompositeOperation = 'destination-out';
+      var isDrawing = false;
+      var revealed = false;
+
+      function getPos(e) {
+        var r = canvas.getBoundingClientRect();
+        var t = e.touches ? e.touches[0] : e;
+        return { x: t.clientX - r.left, y: t.clientY - r.top };
+      }
+
+      function getScratchPercent() {
+        var pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        var total = pixels.length / 4;
+        var clear = 0;
+        for (var i = 3; i < pixels.length; i += 4) {
+          if (pixels[i] === 0) clear++;
+        }
+        return (clear / total) * 100;
+      }
+
+      function autoReveal() {
+        if (revealed) return;
+        revealed = true;
+        canvas.style.transition = 'opacity 0.6s ease';
+        canvas.style.opacity = '0';
+        setTimeout(function () { canvas.style.display = 'none'; }, 600);
+        triggerBlast();
+      }
+
+      function scratch(e) {
+        if (!isDrawing || revealed) return;
+        var p = getPos(e);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 20, 0, Math.PI * 2);
+        ctx.fill();
+        if (getScratchPercent() >= 20) autoReveal();
+      }
+
+      canvas.addEventListener('mousedown', function () { isDrawing = true; });
+      canvas.addEventListener('mousemove', scratch);
+      canvas.addEventListener('mouseup', function () { isDrawing = false; });
+      canvas.addEventListener('mouseleave', function () { isDrawing = false; });
+      canvas.addEventListener('touchstart', function (e) { e.preventDefault(); isDrawing = true; });
+      canvas.addEventListener('touchmove', function (e) { e.preventDefault(); scratch(e); });
+      canvas.addEventListener('touchend', function () { isDrawing = false; });
+    }
+
+    // Blast effect
+    function triggerBlast() {
+      var colors = ['#ff9de2', '#e91e8c', '#7b1fa2', '#ffb347', '#fff0f8', '#ffffff', '#c2185b', '#ff6bcb', '#f8bbd0', '#fff'];
+
+      // Blast rings
+      for (var r = 0; r < 3; r++) {
+        var ring = document.createElement('div');
+        ring.className = 'blast-ring';
+        ring.style.animationDelay = (r * 0.15) + 's';
+        ring.style.borderColor = colors[r];
+        document.body.appendChild(ring);
+        (function(el) { setTimeout(function() { el.remove(); }, 1200); })(ring);
+      }
+
+      // Confetti
+      var confettiBox = document.createElement('div');
+      confettiBox.className = 'confetti-container';
+      document.body.appendChild(confettiBox);
+
+      var shapes = ['circle', 'square', 'star'];
+      for (var i = 0; i < 80; i++) {
+        var c = document.createElement('div');
+        c.className = 'confetti';
+        var color = colors[Math.floor(Math.random() * colors.length)];
+        var shape = shapes[Math.floor(Math.random() * shapes.length)];
+        var size = Math.random() * 10 + 5;
+        c.style.width = size + 'px';
+        c.style.height = size + 'px';
+        c.style.left = Math.random() * 100 + '%';
+        c.style.top = '-5%';
+        c.style.background = color;
+        c.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        c.style.animationDelay = (Math.random() * 0.5) + 's';
+        if (shape === 'circle') c.style.borderRadius = '50%';
+        else if (shape === 'star') {
+          c.style.background = 'transparent';
+          c.style.width = '0';
+          c.style.height = '0';
+          c.style.borderLeft = size/2 + 'px solid transparent';
+          c.style.borderRight = size/2 + 'px solid transparent';
+          c.style.borderBottom = size + 'px solid ' + color;
+        }
+        confettiBox.appendChild(c);
+      }
+
+      // Sparkles from center
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      for (var s = 0; s < 30; s++) {
+        var sp = document.createElement('div');
+        sp.className = 'sparkle';
+        sp.style.background = colors[Math.floor(Math.random() * colors.length)];
+        sp.style.left = cx + 'px';
+        sp.style.top = cy + 'px';
+        var angle = (Math.PI * 2 / 30) * s;
+        var dist = Math.random() * 200 + 100;
+        var ex = Math.cos(angle) * dist;
+        var ey = Math.sin(angle) * dist;
+        sp.style.setProperty('--sparkle-end', 'translate(' + ex + 'px, ' + ey + 'px)');
+        sp.style.animationDuration = (Math.random() * 0.5 + 0.6) + 's';
+        var spSize = Math.random() * 6 + 3;
+        sp.style.width = spSize + 'px';
+        sp.style.height = spSize + 'px';
+        document.body.appendChild(sp);
+        (function(el) { setTimeout(function() { el.remove(); }, 1200); })(sp);
+      }
+
+      setTimeout(function() { confettiBox.remove(); }, 5000);
+    }
+
+    // Protections
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) || (e.ctrlKey && ['u', 'U', 's', 'S'].includes(e.key))) {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  </script>
+</body>
+</html>
